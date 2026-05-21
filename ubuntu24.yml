@@ -1,0 +1,16 @@
+services:
+  ubuntu24:
+    build:
+      context: .
+      ##context: ./ubuntu
+      dockerfile: Dockerfile
+    container_name: ubuntu24
+    environment:
+      ROOT_PASSWORD: "root"
+    ports:
+      - "3389:3389"
+      - "8022:22"
+      - "4200:4200"
+    volumes:
+      - "./ubuntu/ubuntu-data:/workspace"
+    restart: unless-stopped
